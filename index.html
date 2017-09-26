@@ -18,7 +18,13 @@
 
 
 
+
+
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
+
+
 
 
 
@@ -39,7 +45,7 @@ Your phone buzzes from receiving a new text.
 
 [[Surf the web|Web]]
 [[Open drawers|Drawers]]
-[[Start writing|Write]]</tw-passagedata><tw-passagedata pid="5" name="Web" tags="" position="571.6666666666666,725">You click on the browser window and find that you had come to an article on www.writerhotgoss.com titled &quot;Washed Up Writer Somehow Lands A Book Deal!&quot; Hey, this article is about you! You must have been drunk Googling yourself again. Skimming over the article, it does not seem very nice.
+[[Start writing|Write]]</tw-passagedata><tw-passagedata pid="5" name="Web" tags="" position="571,725">You click on the browser window and find that you had come to an article on www.writerhotgoss.com titled &quot;Washed Up Writer Somehow Lands A Book Deal!&quot; Hey, this article is about you! You must have been drunk Googling yourself again. Skimming over the article, it does not seem very nice.
 
 [[Browse Reddit|Reddit]]
 [[Check emails|Emails]]
@@ -49,13 +55,13 @@ Your phone buzzes from receiving a new text.
 [[Close the drawer|Break]]</tw-passagedata><tw-passagedata pid="7" name="Drink" tags="" position="690,875">(set: $hasDrank to true)
 The alcohol helps to lower your inhibitions. You start to feel the creative juices flowing.
 
-[[Close the drawer|Break]]</tw-passagedata><tw-passagedata pid="8" name="GetUp" tags="" position="430,725">Your bedroom is kind of a mess. The only thing you ever do in here is sleep and day drink. Rumor has it that you once actually wrote a script here.
+[[Close the drawer|Break]]</tw-passagedata><tw-passagedata pid="8" name="GetUp" tags="" position="430,725">Your bedroom is kind of a mess. The only thing you ever do in here is sleep and day drink. Rumor has it that you once actually wrote a script in here.
 
 [[Climb into bed|Bed]]
 [[Tidy room|Tidy]]
 [[Enter living room|LivingRoom]]</tw-passagedata><tw-passagedata pid="9" name="Bed" tags="" position="250,875">You climb into bed and rest for a moment. You&#x27;re not able to fall asleep due to the stress of this book deal.
 
-[[Get up|GetUp]]</tw-passagedata><tw-passagedata pid="10" name="Tidy" tags="" position="367.3333333333333,879">You begin to gather your dirty clothes into a pile when you notice a napkin slips out of the jeans you wore last night.
+[[Get up|GetUp]]</tw-passagedata><tw-passagedata pid="10" name="Tidy" tags="" position="367,879">You begin to gather your dirty clothes into a pile when you notice a napkin slips out of the jeans you wore last night.
 
 [[Read note|Note1]]</tw-passagedata><tw-passagedata pid="11" name="LivingRoom" tags="" position="580,875">You&#x27;re standing in your living room. Connected to this room is your kitchen, study, and bedroom. 
 
@@ -94,10 +100,9 @@ Drunk You”
 [[Enter living room|LivingRoom]]</tw-passagedata><tw-passagedata pid="17" name="Briefcase" tags="" position="305,1175">(set: $inputString to &quot;&quot;)
 (set: $keyLength to 0)
 (set: $comboKey to &quot;103&quot;)
-(set: $tryAgain = &quot;Try Again&quot;)
 The briefcase was bought as an attempt to seem like more of a grown-up but you really only use it to carry your peanut butter and jelly sandwiches to work. Still, there might be something interesting inside. If only you can remember the three digit combination.
 0(click:&quot;0&quot;)[(set: $inputString to $inputString + &quot;0&quot;, $keyLength to $keyLength + 1)]	1(click:&quot;1&quot;)[(set: $inputString to $inputString + &quot;1&quot;, $keyLength to $keyLength + 1)]	2(click:&quot;2&quot;)[(set: $inputString to $inputString + &quot;2&quot;, $keyLength to $keyLength + 1)]	3(click:&quot;3&quot;)[(set: $inputString to $inputString + &quot;3&quot;, $keyLength to $keyLength + 1)]	4(click:&quot;4&quot;)[(set: $inputString to $inputString + &quot;4&quot;, $keyLength to $keyLength + 1)]	5(click:&quot;5&quot;)[(set: $inputString to $inputString + &quot;5&quot;, $keyLength to $keyLength + 1)]	6(click:&quot;6&quot;)[(set: $inputString to $inputString + &quot;6&quot;, $keyLength to $keyLength + 1)]	7(click:&quot;7&quot;)[(set: $inputString to $inputString + &quot;7&quot;, $keyLength to $keyLength + 1)]	8(click:&quot;8&quot;)[(set: $inputString to $inputString + &quot;8&quot;, $keyLength to $keyLength + 1)]	9(click:&quot;9&quot;)[(set: $inputString to $inputString + &quot;9&quot;, $keyLength to $keyLength + 1)]
-(live: 1)[(if: $keyLength is 3 and $inputString is $comboKey)[[[Open briefcase-&gt;OpenBC]]](else-if: $keyLength is 3 and $inputString is not $comboKey)[[[Try again-&gt;ExamineLR]]]]
+[[Open briefcase|OpenBC]]
 [[Put down briefcase|ExamineLR]]</tw-passagedata><tw-passagedata pid="18" name="Freezer" tags="" position="470,1305">Third clue! “Have you been flipping the notes over? That’s kind of important”
 
 [[Examine kitchen|Kitchen]]
@@ -117,9 +122,12 @@ It reads: “Let it go, let it gooooo, you’ll never find this next clue! If yo
 [[Flip note|FNote2]]</tw-passagedata><tw-passagedata pid="23" name="FNote2" tags="" position="880,1475">You see the number &#x27;0&#x27; at the bottom of the note.
 [[Examine the study|Study]]</tw-passagedata><tw-passagedata pid="24" name="FNote3" tags="" position="450,1325">You see the number &#x27;3&#x27; written at the bottom right corner of the note.
 
-[[Examine kitchen|Kitchen]]</tw-passagedata><tw-passagedata pid="25" name="OpenBC" tags="" position="320,1325">The briefcase opens and inside you find a hefty manuscript titled &quot;The Delightful Adventures of Dapper Dan.&quot; Leafing through the pages, you find it to be very entertaining and well written. You wonder where this came from for a moment before discovering yet another note that says...
+[[Examine kitchen|Kitchen]]</tw-passagedata><tw-passagedata pid="25" name="OpenBC" tags="" position="320,1325">(if: $inputString is $comboKey and $keyLength is 3)[The briefcase opens and inside you find a hefty manuscript titled &quot;The Delightful Adventures of Dapper Dan.&quot; Leafing through the pages, you find it to be very entertaining and well written. You wonder where this came from for a moment before discovering yet another note that says...
 
-[[Read note|FinalNote]]</tw-passagedata><tw-passagedata pid="26" name="FinalNote" tags="" position="320,1475">&quot;Oh by the way, not only did I finally come up with something to write about, but I also spent the past six hours typing up our novel! I owe it all to functional alcoholism, which is also the reason why I&#x27;ve been able to leave you these coherent notes - but you already knew that about me. Hurry up and get this to the publisher, let&#x27;s sell some books!
+[[Read note|FinalNote]]]
+(else:)[The lock does not open. You must have entered an incorrect combination
+
+[[Try again|Briefcase]]]</tw-passagedata><tw-passagedata pid="26" name="FinalNote" tags="" position="320,1475">&quot;Oh by the way, not only did I finally come up with something to write about, but I also spent the past six hours typing up our novel! I owe it all to functional alcoholism, which is also the reason why I&#x27;ve been able to leave you these coherent notes - but you already knew that about me. Hurry up and get this to the publisher, let&#x27;s sell some books!
 
 P.S. Don&#x27;t be afraid of letting me out every once in a while. Next time I&#x27;m around, I might even get us into the screenwriter&#x27;s hall of fame!
 
@@ -138,7 +146,7 @@ That&#x27;s enough for now.
 
 [[Examine study|Study]]</tw-passagedata><tw-passagedata pid="30" name="Art" tags="" position="470,1175">You don&#x27;t know anything about art. You bought this painting because you thought it was funny - a dog dressed in a tuxedo riding a unicycle. You think it&#x27;s clever to have it ironically placed inside of a study, but no one seems to &#x27;get it.&#x27;
 
-[[Examine study|Study]]</tw-passagedata><tw-passagedata pid="31" name="Reddit" tags="" position="471.6666666666667,871.6666666666666">There&#x27;s not much happening on Reddit today. You like to check in on your fan subreddit every once in a while but there&#x27;s not been much activity there lately. Hopefully once people get a hold of this book they&#x27;ll be interested in you again.
+[[Examine study|Study]]</tw-passagedata><tw-passagedata pid="31" name="Reddit" tags="" position="471,871">There&#x27;s not much happening on Reddit today. You like to check in on your fan subreddit every once in a while but there&#x27;s not been much activity there lately. Hopefully once people get a hold of this book they&#x27;ll be interested in you again.
 
 [[Close browser|Break]]</tw-passagedata><tw-passagedata pid="32" name="Emails" tags="" position="140,845">No new emails since yesterday&#x27;s conversation with the publisher, assuring them that a final draft will be delivered today.
 
